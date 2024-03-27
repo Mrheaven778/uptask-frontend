@@ -3,31 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  color-scheme: dark;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-gray-900 text-white;
+  /* @apply max-w-5xl mx-auto p-4; */
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Estilos para los enlaces */
+
+
+/* Estilos para los botones */
+
+/* Estilos para las tarjetas */
+.card {
+  @apply bg-gray-800 text-white rounded-md shadow-md p-4;
+}
+
+/* Estilos para los íconos */
+.icon {
+  @apply text-gray-400;
+}
+
+/* Estilos para los íconos al pasar el ratón */
+.icon:hover {
+  @apply text-gray-300;
+}
+
+/* Estilos para los títulos */
+.title {
+  @apply text-2xl font-semibold mb-4;
 }
