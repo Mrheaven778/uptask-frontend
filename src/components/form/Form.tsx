@@ -24,8 +24,10 @@ function Form() {
         await createProject(data).then(() => {
               toast.success("Proyecto creado correctamente",
               { duration: 5000, position: "top-center", style: { backgroundColor: "#4B5563", color: "#F3F4F6" }})
-         }).catch(() => {   
-                toast.error("Error al crear el proyecto")
+         }).catch((error) => {   
+                toast.error("Error al crear el proyecto no tienes permisos",{
+                duration: 5000, position: "top-center", style: { backgroundColor: "#F87171", color: "#1F2937" } 
+                })
              })
             router.push("/dashboard")
     }

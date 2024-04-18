@@ -1,4 +1,4 @@
 
-export function gormaDate(isoSate: string) {
-    return new Date().toISOString().split('T')[0]
+export  function gormaDate(isoSate: string) {
+     return  new Date().toISOString().split('T')[0]
 }

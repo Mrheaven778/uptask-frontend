@@ -9,6 +9,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { RxCross2 } from "react-icons/rx";
+import LoggingOut from "./LoggingOut";
 
 const menuItems = [
   {
@@ -25,12 +26,7 @@ const menuItems = [
     icon: <IoListOutline />,
     title: "Ver tareas",
     path: "/dashboard/server-todos",
-  },
-  {
-    icon: <IoPersonOutline />,
-    title: "Perfil",
-    path: "/dashboard/profile",
-  },
+  }
 ];
 
 export default function NavMobile() {
@@ -62,6 +58,7 @@ export default function NavMobile() {
           </div>
         ))}
         <div className="w-full h-px bg-gray-700 my-10" />
+        <LoggingOut />
       </div>
     </>
   );

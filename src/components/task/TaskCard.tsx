@@ -19,13 +19,21 @@ function TaskCard({ task, resetdata }: TaskCardProps) {
     const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const { id } = useParams();
     const ButtondeleteTask = async () => {
-        await deleteTask(id.toString(), task.id || '')
-        toast.success('Tarea eliminada', {
-            duration: 5000,
-            position: 'top-center',
-            style: { backgroundColor: "#4B5563", color: "#F3F4F6" }
-        })
-        resetdata()
+        try {
+            await deleteTask(id.toString(), task.id || '')
+            toast.success('Tarea eliminada', {
+                duration: 5000,
+                position: 'top-center',
+                style: { backgroundColor: "#4B5563", color: "#F3F4F6" }
+            })
+            resetdata()
+        } catch (error) {
+            toast.error('No se pudo eliminar la tarea ' + error, {
+                duration: 5000,
+                position: 'top-center',
+                style: { backgroundColor: "#F87171", color: "#F3F4F6" }
+            })
+        }
 
     }
 

@@ -7,6 +7,7 @@ import { gormaDate } from '@/utils/utils';
 import { useParams } from 'next/navigation';
 import { updateSatatusTask } from '@/api/ProjectAPI';
 import { toast } from 'sonner';
+import { useAuth } from '@/store/use-auth';
 interface TaskModalDetailsProps {
     open: boolean;
     onClose: () => void;
@@ -24,10 +25,10 @@ const statusTranslation: { [key: string]: string } = {
 }
 
 export default function TaskModalDetails({ open, onClose, task, resetdata }: TaskModalDetailsProps) {
-
+    const { user} = useAuth();
     const { id } = useParams();
     const ButtonupdateSatatusTask = async (e: React.ChangeEvent<HTMLSelectElement>) => {
-        await updateSatatusTask(id.toString(), task.id || '', e.target.value);
+        await updateSatatusTask(id.toString(), task.id || '', e.target.value, user.id);
          toast.success('Estado modificado correctamente', {
             duration: 5000,
             position: 'top-center',

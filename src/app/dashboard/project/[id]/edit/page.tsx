@@ -16,13 +16,10 @@ function EditPage() {
         }
         fetchProject()
     }, [id])
-    if (!project) {
-        return <PageNotFound />
-    }
     
-    return (
-       <ProjectEdit project={project} />
-    )
+    return project ? (
+        <ProjectEdit project={project} />
+     ) : null
 }
 
 export default EditPage 

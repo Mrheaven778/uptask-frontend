@@ -17,6 +17,7 @@ interface EditTaskModalProps {
 }
 
 function EditTaskModal({ open, onClose, task, resetdata }: EditTaskModalProps) {
+  
   const { id } = useParams();
   const { register, handleSubmit, formState: { errors }, reset } = useForm<Task>({
     defaultValues: { name: task.name, description: task.description }

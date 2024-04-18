@@ -59,7 +59,6 @@ function TaskList({ tasks, resetdata}: TaskListProps) {
                             ) : (
                                 tasks.map(task => (
                                     <TaskCard key={task.id} task={task} resetdata={resetdata}/>
-
                                 ))
                             )}
                         </ul>

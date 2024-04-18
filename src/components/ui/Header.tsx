@@ -6,6 +6,7 @@ import { IoCalendarOutline, IoListOutline, IoPersonOutline } from "react-icons/i
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import LoggingOut from "./LoggingOut";
 
 const menuItems = [
     {
@@ -13,21 +14,11 @@ const menuItems = [
         title: "Dashboard",
         path: "/dashboard",
     },
-    // {
-    //   icon: <IoCheckboxOutline />,
-    //   title: "Rest TODOS",
-    //   path: "/dashboard/rest-todos",
-    // },
     {
         icon: <IoListOutline />,
-        title: "Ver tareas",
+        title: "Mis Proyectos",
         path: "/dashboard/server-todos",
-    },
-    {
-        icon: <IoPersonOutline />,
-        title: "Perfil",
-        path: "/dashboard/profile",
-    },
+    }
 ];
 
 export default function Header() {
@@ -59,7 +50,7 @@ export default function Header() {
                             <li key={index}>
                                 <Link href={item.path}
                                     className={clsx(
-                                        "px-4 py-3 flex items-center space-x-4 rounded-md text-gray-300 group hover:bg-gray-700 hover:text-white",
+                                        "px-4 py-3 flex items-center space-x-4 rounded-md text-gray-300 group hover:bg-gray-700 hover:text-white gap-4",
                                         item.path === pathName && "text-white bg-gradient-to-r from-violet-600 to-purple-400"
                                     )}>
                                     {item.icon}
@@ -67,6 +58,7 @@ export default function Header() {
                                 </Link>
                             </li>
                         ))}
+                        <LoggingOut />
                     </ul>
                 </nav>
             </div>
