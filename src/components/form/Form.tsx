@@ -33,7 +33,7 @@ function Form() {
     }
     
     return (
-        <form className="mt-10 bg-white dark:bg-gray-800 shadow-lg p-10 rounded-lg" onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form className="mt-10  dark:bg-gray-900 shadow-lg p-10 rounded-lg bg-slate-900" onSubmit={handleSubmit(onSubmit)} noValidate>
             <ProjectForm
             register={register}
             errors={errors}

@@ -10,7 +10,7 @@ interface EditProjectFormProps {
 
 function EditProjectForm({ project }: EditProjectFormProps) {
   return (
-    <div>
+    <div >
       <h1 className='text-5xl font-black'>
         Editar Proyecto {project.title}
       </h1>

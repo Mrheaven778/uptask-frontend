@@ -48,7 +48,7 @@ export default function LoginView() {
             id="email"
             type="email"
             placeholder="Email de Registro"
-            className="w-full p-3  border-gray-600 border rounded-lg"
+            className="w-full p-3  border border-gray-700 bg-gray-800 rounded-lg"
             {...register("email", {
               required: "El Email es obligatorio",
               pattern: {
@@ -66,7 +66,7 @@ export default function LoginView() {
           <input
             type="password"
             placeholder="Password de Registro"
-            className="w-full p-3  border-gray-600 border rounded-lg"
+            className="w-full p-3  border border-gray-700 bg-gray-800  rounded-lg"
             {...register("password", {
               required: "El Password es obligatorio",
             })}

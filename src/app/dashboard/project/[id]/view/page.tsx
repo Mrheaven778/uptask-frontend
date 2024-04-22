@@ -13,7 +13,6 @@ import { toast } from "sonner";
 
 function ViewPage() {
   const { user } = useAuth();
-
   const { id } = useParams();
   const [newTask, setNewTask] = useState(false);
   const [project, setProject] = useState<Post>();

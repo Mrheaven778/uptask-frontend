@@ -66,7 +66,7 @@ export default function RegisterView() {
             id="email"
             type="email"
             placeholder="Email de Registro"
-            className="w-full p-3 border-gray-600 border text-white rounded-lg"
+            className="w-full p-3 border border-gray-700 bg-gray-800  text-white rounded-lg"
             {...register("email", {
               required: "El Email de registro es obligatorio",
               pattern: {
@@ -86,7 +86,7 @@ export default function RegisterView() {
             id="name"
             type="name"
             placeholder="Nombre de Registro"
-            className="w-full p-3 border-gray-600 border text-white rounded-lg"
+            className="w-full p-3 border border-gray-700 bg-gray-800 text-white rounded-lg"
             {...register("name", {
               required: "El Nombre de usuario es obligatorio",
             })}
@@ -102,7 +102,7 @@ export default function RegisterView() {
             id="password"
             type="password"
             placeholder="Password de Registro"
-            className="w-full p-3 border-gray-600 border text-white rounded-lg"
+            className="w-full p-3 border border-gray-700 bg-gray-800 text-white rounded-lg"
             {...register("password", {
               required: "El Password es obligatorio",
               minLength: {
@@ -127,7 +127,7 @@ export default function RegisterView() {
             id="password_confirmation"
             type="password"
             placeholder="Repite Password de Registro"
-            className="w-full p-3 border-gray-600 border text-white rounded-lg"
+            className="w-full p-3 border border-gray-700 bg-gray-800 text-white rounded-lg"
             {...register("password_confirmation", {
               required: "Repetir Password es obligatorio",
               validate: (value) =>

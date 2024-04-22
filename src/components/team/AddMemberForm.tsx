@@ -68,7 +68,7 @@ export default function AddMemberForm({fetchProject }: AddMemberFormProps) {
             id="name"
             type="text"
             placeholder="E-mail del usuario a Agregar"
-            className="w-full p-3 border-gray-700 border dark:bg-gray-900 dark:text-white rounded-2xl transition-colors"
+            className="w-full p-3 border border-gray-700 bg-gray-800   dark:bg-gray-900 dark:text-white rounded-2xl transition-colors"
             {...register("email", {
               required: "El Email es obligatorio",
               pattern: {

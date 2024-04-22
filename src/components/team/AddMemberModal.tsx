@@ -39,14 +39,14 @@ export default function AddMemberModal({ open, onClose, fetchProject }: AddTaskM
                         leaveFrom="opacity-100 scale-100"
                         leaveTo="opacity-0 scale-95"
                     >
-                        <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white dark:bg-gray-800 text-left align-middle shadow-xl transition-all p-16">
+                        <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-gray-900 dark:bg-gray-800 text-left align-middle shadow-xl transition-all p-16">
                             <Dialog.Title
                                 as="h3"
-                                className="font-black text-4xl text-gray-900 dark:text-white my-5"
+                                className="font-black text-4xl text-white dark:text-white my-5"
                             >
                                 Agregar Integrante al equipo
                             </Dialog.Title>
-                            <p className="text-xl font-bold text-gray-700 dark:text-gray-300">
+                            <p className="text-xl font-bold text-white dark:text-gray-300">
                                 Busca el nuevo integrante por email{' '}
                                 <span className="text-fuchsia-600">para agregarlo al proyecto</span>
                             </p>
