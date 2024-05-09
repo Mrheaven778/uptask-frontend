@@ -18,7 +18,7 @@ export default function TeamPage() {
 
   useEffect(() => {
     fetchProject();
-  });
+  }, []);
   const fetchProject = async () => {
     try {
       const usersTeam: User[] = await getTeamProject({ projectId: idProject });

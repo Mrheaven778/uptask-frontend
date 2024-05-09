@@ -10,7 +10,6 @@ export async function registerUser(formData: UserRegister) {
       username: name,
       password,
     });
-    console.log(data);
     return data;
   } catch (error: any) {
     console.error(error);

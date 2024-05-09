@@ -44,8 +44,6 @@ export async function addUserToProject({
     if (!id) {
       throw new Error("No se ha encontrado el usuario");
     }
-    console.log(id);
-    console.log(projectId);
     const { data } = await instance.post(`post/${projectId}/team`, {
       id: id,
     });

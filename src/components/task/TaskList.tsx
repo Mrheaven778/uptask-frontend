@@ -45,7 +45,7 @@ function TaskList({ tasks, resetdata}: TaskListProps) {
     return (
         <>
             <h2 className="text-5xl font-black my-10 text-white">Tareas</h2>
-
+            
             <div className='flex gap-5 overflow-x-scroll 2xl:overflow-auto pb-32'>
                 {Object.entries(groupedTasks).map(([status, tasks]) => (
                     <div key={status} className='min-w-[300px] 2xl:min-w-0 2xl:w-1/5'>

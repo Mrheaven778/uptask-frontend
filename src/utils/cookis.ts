@@ -10,7 +10,6 @@ export const setCookie = async (name: string, value: string, days: number) => {
 export const getCookie = async () => {
    const cookieStore = cookies()
    const token = await cookieStore.get("AUTH_TOKEN")?.value ?? '1'
-   // console.log(token)
    return token
 }
 

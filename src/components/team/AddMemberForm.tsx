@@ -12,7 +12,7 @@ interface AddMemberFormProps {
   fetchProject: () => void;
 }
 
-export default function AddMemberForm({fetchProject }: AddMemberFormProps) {
+export default function AddMemberForm({ fetchProject }: AddMemberFormProps) {
   const [loading, setLoading] = useState(false);
   const initialValues: TeamMemberForm = {
     email: "",
@@ -36,7 +36,7 @@ export default function AddMemberForm({fetchProject }: AddMemberFormProps) {
       setSearchResult(user);
       reset();
     } catch (error) {
-      toast.error("No se pudo buscar el usuario: "+ error, {
+      toast.error("No se pudo buscar el usuario: " + error, {
         duration: 5000,
         style: {
           backgroundColor: "#333",
@@ -89,7 +89,11 @@ export default function AddMemberForm({fetchProject }: AddMemberFormProps) {
         {loading && <p className="text-center ">Cargado...</p>}
       </div>
       {searchResult && (
-        <SearchResult user={searchResult} idProject={projectId} fetchProject={fetchProject}/>
+        <SearchResult
+          user={searchResult}
+          idProject={projectId}
+          fetchProject={fetchProject}
+        />
       )}
     </>
   );

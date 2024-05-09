@@ -1,14 +1,14 @@
 "use client";
-import { getProject } from "@/api/ProjectAPI";
+import React, { useEffect, useState } from "react";
+import { getProject, getTasks } from "@/api/ProjectAPI";
 import AddTaskModal from "@/components/project/AddTaskModal";
 import TaskList from "@/components/task/TaskList";
 import PageNotFound from "@/components/ui/not-found/PageNotFound";
-import { Post } from "@/interface/project";
+import { Post, Task } from "@/interface/project";
 import { useAuth } from "@/store/use-auth";
 import { isManager } from "@/utils/policies";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 function ViewPage() {
@@ -16,21 +16,42 @@ function ViewPage() {
   const { id } = useParams();
   const [newTask, setNewTask] = useState(false);
   const [project, setProject] = useState<Post>();
-  const fetchProject = async () => {
+  const [tasks, setTasks] = useState<Task[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const fetchProject = async (): Promise<void> => {
     try {
       const project: Post = await getProject(id.toString());
       setProject(project);
+      setIsLoading(false);
     } catch (error) {
       toast.error("No se pudo cargar el proyecto");
+      setIsLoading(false);
     }
   };
-  const resetData = async () => {
-    await fetchProject();
+  const fecthTasks = async (): Promise<void> => {
+    try {
+      const tasks = await getTasks(id.toString());
+      setTasks(tasks);
+    } catch (error) {
+      toast.error("No se pudo cargar las tareas");
+    }
   };
-  useEffect(() => {
+  const resetData = async (): Promise<void> => {
+    await fetchProject();
+    await fecthTasks();
+  };
+  useEffect((): void => {
     fetchProject();
-  });
+    fecthTasks();
+  }, [id]);
 
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
+      </div>
+    );
+  }
   if (project === undefined) return <PageNotFound />;
 
   return (
@@ -62,7 +83,7 @@ function ViewPage() {
         id={project?.id || ""}
         resetdata={resetData}
       />
-      <TaskList tasks={project?.tasks || []} resetdata={resetData} />
+      <TaskList tasks={tasks || []} resetdata={resetData} />
     </div>
   );
 }

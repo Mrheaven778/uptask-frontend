@@ -30,6 +30,16 @@ export async function getProject(id: string) {
   }
 }
 
+export async function getTaksById(id: string) {
+    try {
+        const { data } = await instance.get(`task/${id} `);
+        return data;
+    } catch (error: any) {
+        throw new Error(error.response.data.message);
+    }
+
+}
+
 export async function updateProject(id: string, formData: ProjectFormData) {
   try {
     await instance.patch(
@@ -51,7 +61,7 @@ export async function deleteProject(id: string) {
   }
 }
 
-export async function getTaks(projectId: string) {
+export async function getTasks(projectId: string) {
   try {
     const { data } = await instance.get(`post/${projectId}/task`);
     return data;
