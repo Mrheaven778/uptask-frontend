@@ -9,11 +9,12 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { RxCross2 } from "react-icons/rx";
+import LoggingOut from "./LoggingOut";
 
 const menuItems = [
   {
     icon: <IoCalendarOutline />,
-    title: "Dashboard",
+    title: "Mis Proyectos",
     path: "/dashboard",
   },
   // {
@@ -23,8 +24,8 @@ const menuItems = [
   // },
   {
     icon: <IoListOutline />,
-    title: "Ver tareas",
-    path: "/dashboard/server-todos",
+    title: "Mi Perfil",
+    path: "/dashboard/profile",
   },
 ];
 
@@ -60,7 +61,7 @@ export default function NavMobile() {
             <Link
               href={item.path}
               className={clsx(
-                "px-4 py-3 flex items-center space-x-4 rounded-md text-gray-300 group hover:bg-gray-700 hover:text-white",
+                "px-4 py-3 flex items-center space-x-4 rounded-md text-gray-300 group hover:bg-gray-700 hover:text-white w-44",
                 item.path === pathName &&
                   "text-white bg-gradient-to-r from-violet-600 to-purple-400"
               )}
@@ -71,6 +72,7 @@ export default function NavMobile() {
           </div>
         ))}
         <div className="w-full h-px bg-gray-700 my-10" />
+        <LoggingOut />
       </div>
     </>
   );

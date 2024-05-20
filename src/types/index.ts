@@ -25,6 +25,7 @@ const userSchema = z.object({
 });
 
 export type User = z.infer<typeof userSchema>;
+export type UserFormData = Pick<User, "username" | "email">;
 
 // note
 export const noteSchema = z.object({
@@ -36,3 +37,11 @@ export const noteSchema = z.object({
 });
 export type Note = z.infer<typeof noteSchema>;
 export type NoteFormData = Pick<Note, "content">;
+
+
+const changePasswordSchema = z.object({
+  current_password: z.string(),
+  password: z.string(),
+  password_confirmation: z.string(),
+});
+export type ChangePassword = z.infer<typeof changePasswordSchema>;

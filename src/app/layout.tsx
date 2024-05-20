@@ -28,7 +28,6 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        
           <section>
             {children}
             <Footer />

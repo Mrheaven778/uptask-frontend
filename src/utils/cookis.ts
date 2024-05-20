@@ -3,7 +3,6 @@ import { cookies } from "next/headers"
 
 
 export const setCookie = async (name: string, value: string, days: number) => {
-   // que la cookie dure 6 meses
    await  cookies().set(name, value, {maxAge: 60 * 60 * 24 * days})
 }
 

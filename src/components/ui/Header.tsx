@@ -11,13 +11,13 @@ import LoggingOut from "./LoggingOut";
 const menuItems = [
     {
         icon: <IoCalendarOutline />,
-        title: "Dashboard",
+        title: "Mis Proyectos",
         path: "/dashboard",
     },
     {
         icon: <IoListOutline />,
-        title: "Mis Proyectos",
-        path: "/dashboard/server-todos",
+        title: "Mi Perfil",
+        path: "/dashboard/profile",
     }
 ];
 
@@ -50,7 +50,7 @@ export default function Header() {
                             <li key={index}>
                                 <Link href={item.path}
                                     className={clsx(
-                                        "px-4 py-3 flex items-center space-x-4 rounded-md text-gray-300 group hover:bg-gray-700 hover:text-white gap-4",
+                                        "px-4 py-3 flex items-center space-x-4 rounded-md text-gray-300 group hover:bg-gray-700 hover:text-white gap-4 transition-colors duration-200 w-44",
                                         item.path === pathName && "text-white bg-gradient-to-r from-violet-600 to-purple-400"
                                     )}>
                                     {item.icon}
