@@ -1,6 +1,7 @@
 import { UserLogin, UserRegister } from "@/interface/user.interface";
 import instance from "../../lib/axios";
 import { setCookie } from "@/utils/cookis";
+import { redirect } from "next/navigation";
 
 export async function registerUser(formData: UserRegister) {
   try {
@@ -17,16 +18,14 @@ export async function registerUser(formData: UserRegister) {
   }
 }
 
-export async function loginUser(formData: UserLogin): Promise<void> {
+export async function loginUser(formData: UserLogin): Promise<string> {
   try {
     const { email, password } = formData;
     const response = await instance.post("auth/login", {
       email,
       password,
     });
-    const token = response.data.data.token;
-    localStorage.setItem("AUTH_TOKEN", token);
-    setCookie("AUTH_TOKEN", token, 182);
+    return response.data.data.token;
   } catch (error: any) {
     console.error(error);
     throw new Error(error.response.data.message);

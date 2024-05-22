@@ -3,12 +3,11 @@
 import { loginUser } from "@/api/AuthAPI";
 import { ErrorMessage } from "@/components/ui";
 import { UserLogin } from "@/interface/user.interface";
+import { setCookie } from "@/utils/cookis";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
-
-
 
 export default function LoginView() {
   const router = useRouter();
@@ -24,7 +23,9 @@ export default function LoginView() {
 
   const handleLogin = async (formData: UserLogin) => {
     try {
-      await loginUser(formData);
+      const token = await loginUser(formData);
+      localStorage.setItem("AUTH_TOKEN", token);
+      setCookie("AUTH_TOKEN", token, 182);
       router.push("/dashboard");
     } catch (error: any) {
       toast.error(`Error al iniciar sesión: ${error.message}`, {
@@ -84,7 +85,7 @@ export default function LoginView() {
       </form>
       <nav className="mt-10 flex flex-col space-y-4">
         <Link href="/auth/register" className="text-center font-normal">
-            ¿No tienes cuenta? Regístrate
+          ¿No tienes cuenta? Regístrate
         </Link>
       </nav>
     </>
