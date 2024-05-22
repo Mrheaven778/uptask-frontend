@@ -17,7 +17,7 @@ export async function registerUser(formData: UserRegister) {
   }
 }
 
-export async function loginUser(formData: UserLogin): Promise<string> {
+export async function loginUser(formData: UserLogin): Promise<void> {
   try {
     const { email, password } = formData;
     const response = await instance.post("auth/login", {
@@ -27,7 +27,6 @@ export async function loginUser(formData: UserLogin): Promise<string> {
     const token = response.data.data.token;
     localStorage.setItem("AUTH_TOKEN", token);
     setCookie("AUTH_TOKEN", token, 182);
-    return response.data.data.token;
   } catch (error: any) {
     console.error(error);
     throw new Error(error.response.data.message);
