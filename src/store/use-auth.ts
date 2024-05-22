@@ -1,6 +1,5 @@
 import { User } from "@/interface/user.interface";
 import { create } from "zustand";
-import instance from "../../lib/axios";
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -9,7 +8,6 @@ interface AuthState {
   setLoading: (isLoading: boolean) => void;
   user: User;
   setUser: (user: User) => void;
-  // getUser: () => Promise<void>;
 }
 
 export const useAuth = create<AuthState>((set) => ({
@@ -26,19 +24,4 @@ export const useAuth = create<AuthState>((set) => ({
   setUser: (user: User) => set({ user }),
   setIsAuthenticated: (isAuthenticated) => set({ isAuthenticated }),
   setLoading: (isLoading) => set({ isLoading }),
-  // getUser: async () => {
-  //   set({ isLoading: true });
-  //   await instance
-  //     .get("user/profile")
-  //     .then(({ data }) => {
-  //       set({ user: data });
-  //       set({ isAuthenticated: true });
-  //     })
-  //     .catch(() => {
-  //       set({ isAuthenticated: false });
-  //     })
-  //     .finally(() => {
-  //       set({ isLoading: false });
-  //     });
-  // },
 }));

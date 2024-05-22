@@ -5,7 +5,7 @@ export default async function pageDashboard() {
   
   return (
     <div >
-      <h1 className='text-5xl font-black'>
+      <h1 className='text-5xl font-black text-white'>
         Mis proyectos
       </h1>
       <p className='text-2xl font-light text-gray-300 mt-5'>

@@ -32,7 +32,7 @@ export async function getProject(id: string) {
 
 export async function getTaksById(id: string) {
     try {
-        const { data } = await instance.get(`task/${id} `);
+        const { data } = await instance.get(`task/${id}`);
         return data;
     } catch (error: any) {
         throw new Error(error.response.data.message);
@@ -63,6 +63,7 @@ export async function deleteProject(id: string) {
 
 export async function getTasks(projectId: string) {
   try {
+    console.log(projectId);
     const { data } = await instance.get(`post/${projectId}/task`);
     return data;
   } catch (error: any) {

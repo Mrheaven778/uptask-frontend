@@ -38,11 +38,10 @@ function UserAuth({ children }: UserAuthProps) {
     fetchUser();
   }, []);
 
-  useEffect(() => {
-    if (!isAuthenticated) {
-      router.push("/auth/login");
-    }
-  }, [isAuthenticated, router]);
+  // if (!isAuthenticated && !isLoading) {
+  //   router.push("/auth/login");
+  //   return null;
+  // }
 
   if (isLoading) {
     return (

@@ -24,7 +24,11 @@ function ViewPage() {
       setProject(project);
       setIsLoading(false);
     } catch (error) {
-      toast.error("No se pudo cargar el proyecto");
+      toast.error("No se pudo cargar el proyecto", {
+        duration: 5000,
+        position: "top-center",
+        style: { backgroundColor: "#4B5563", color: "#F3F4F6" },
+      });
       setIsLoading(false);
     }
   };
@@ -33,7 +37,11 @@ function ViewPage() {
       const tasks = await getTasks(id.toString());
       setTasks(tasks);
     } catch (error) {
-      toast.error("No se pudo cargar las tareas");
+      toast.error("No se pudo cargar las tareas", {
+        duration: 5000,
+        position: "top-center",
+        style: { backgroundColor: "#4B5563", color: "#F3F4F6" },
+      });
     }
   };
   const resetData = async (): Promise<void> => {
@@ -60,23 +68,23 @@ function ViewPage() {
       <p className="text-2xl font-light text-gray-300 mt-5">
         {project.content}
       </p>
-      {isManager(user, project.managerId) && (
-        <nav className="my-5 flex gap-3">
-          <button
-            type="button"
-            className="bg-purple-400 hover:bg-purple-500 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors rounded-2xl"
-            onClick={() => setNewTask(true)}
-          >
-            Agregar tarea
-          </button>
+      <nav className="my-5 flex gap-3">
+        <button
+          type="button"
+          className="bg-purple-400 hover:bg-purple-500 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors rounded-2xl"
+          onClick={() => setNewTask(true)}
+        >
+          Agregar tarea
+        </button>
+        {isManager(user, project.managerId) && (
           <Link
             href={`/dashboard/project/${project?.id}/team`}
             className="bg-fuchsia-600 hover:bg-fuchsia-700 px-10 py-3 text-white text-xl font-bold cursor-pointer transition-colors rounded-2xl"
           >
             Colaboradores
           </Link>
-        </nav>
-      )}
+        )}
+      </nav>
       <AddTaskModal
         open={newTask}
         onClose={() => setNewTask(false)}

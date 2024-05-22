@@ -3,7 +3,6 @@
 import { loginUser } from "@/api/AuthAPI";
 import { ErrorMessage } from "@/components/ui";
 import { UserLogin } from "@/interface/user.interface";
-import { setCookie } from "@/utils/cookis";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -23,7 +22,7 @@ export default function LoginView() {
 
   const handleLogin = async (formData: UserLogin) => {
     try {
-      const token = await loginUser(formData);
+    await loginUser(formData);
       router.push("/dashboard");
     } catch (error: any) {
       toast.error(`Error al iniciar sesión: ${error.message}`, {
