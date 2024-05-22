@@ -63,7 +63,6 @@ export async function deleteProject(id: string) {
 
 export async function getTasks(projectId: string) {
   try {
-    console.log(projectId);
     const { data } = await instance.get(`post/${projectId}/task`);
     return data;
   } catch (error: any) {
