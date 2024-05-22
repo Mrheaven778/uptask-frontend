@@ -25,6 +25,9 @@ export async function loginUser(formData: UserLogin): Promise<string> {
       email,
       password,
     });
+    const token = response.data.data.token;
+    localStorage.setItem("AUTH_TOKEN", token);
+    setCookie("AUTH_TOKEN", token, 182);
     return response.data.data.token;
   } catch (error: any) {
     console.error(error);

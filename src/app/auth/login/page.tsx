@@ -24,8 +24,6 @@ export default function LoginView() {
   const handleLogin = async (formData: UserLogin) => {
     try {
       const token = await loginUser(formData);
-      localStorage.setItem("AUTH_TOKEN", token);
-      await setCookie("AUTH_TOKEN", token, 182);
       router.push("/dashboard");
     } catch (error: any) {
       toast.error(`Error al iniciar sesión: ${error.message}`, {
