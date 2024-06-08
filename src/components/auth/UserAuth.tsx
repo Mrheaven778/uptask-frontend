@@ -3,11 +3,9 @@ import { getAuthUser } from "@/api/AuthAPI";
 import { useAuth } from "@/store/use-auth";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
-
 interface UserAuthProps {
   children: React.ReactNode;
 }
-
 function UserAuth({ children }: UserAuthProps) {
   const {
     isAuthenticated,
@@ -38,10 +36,10 @@ function UserAuth({ children }: UserAuthProps) {
     fetchUser();
   }, []);
 
-  // if (!isAuthenticated && !isLoading) {
-  //   router.push("/auth/login");
-  //   return null;
-  // }
+  if (!isAuthenticated ) {
+    router.push("/auth/login");
+    return null;
+  }
 
   if (isLoading) {
     return (
