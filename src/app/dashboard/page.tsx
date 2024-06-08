@@ -1,32 +1,7 @@
-"use client";
 import Project from "@/components/project/Project";
-import { useAuth } from "@/store/use-auth";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 
-export default function PageDashboard() {  // Cambié el nombre aquí
-  const { isAuthenticated } = useAuth();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    setIsLoading(false);
-  }, []);
-
-  const router = useRouter();
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    router.push("/auth/login");
-  }
-
+export default function PageDashboard() {
   return (
     <div>
       <h1 className="text-5xl font-black text-white">Mis proyectos</h1>
