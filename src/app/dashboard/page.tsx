@@ -1,7 +1,18 @@
+'use client';
 import Project from "@/components/project/Project";
+import { useAuth } from "@/store/use-auth";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function PageDashboard() {
+  const { isAuthenticated } = useAuth();
+  const router = useRouter();
+
+  if (!isAuthenticated) {
+    router.push("/auth/login");
+    return null;
+  }
+  
   return (
     <div>
       <h1 className="text-5xl font-black text-white">Mis proyectos</h1>
