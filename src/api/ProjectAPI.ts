@@ -17,6 +17,7 @@ export async function getProjects() {
     const { data } = await instance.get("post");
     return data;
   } catch (error: any) {
+        redirect("/auth/login");
     throw new Error(error.response.data.message);
   }
 }
