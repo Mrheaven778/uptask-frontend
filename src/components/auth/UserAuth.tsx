@@ -9,6 +9,7 @@ interface UserAuthProps {
 function UserAuth({ children }: UserAuthProps) {
   const {
     setIsAuthenticated,
+    isAuthenticated,
     isLoading,
     setLoading,
     setUser,
@@ -19,6 +20,7 @@ function UserAuth({ children }: UserAuthProps) {
       if (!user) {
         setIsAuthenticated(false);
         setLoading(false);
+        router.push("/auth/login"); 
         return;
       }
       setIsAuthenticated(true);
@@ -34,7 +36,6 @@ function UserAuth({ children }: UserAuthProps) {
   useEffect(() => {
     fetchUser();
   }, []); 
-
 
   if (isLoading) {
     return (
