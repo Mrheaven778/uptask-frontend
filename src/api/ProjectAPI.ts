@@ -2,8 +2,6 @@
 import { ProjectFormData } from "@/types";
 import instance from "../../lib/axios";
 import { Task } from "@/interface/project";
-import { getCookie } from "@/utils/cookis";
-import { redirect } from "next/navigation";
 
 
 export async function createProject(formaData: ProjectFormData) {
@@ -19,7 +17,6 @@ export async function getProjects() {
     const { data } = await instance.get("post");
     return data;
   } catch (error: any) {
-        redirect("/auth/login");
     throw new Error(error.response.data.message);
   }
 }
