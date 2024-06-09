@@ -3,6 +3,8 @@ import { ProjectFormData } from "@/types";
 import instance from "../../lib/axios";
 import { Task } from "@/interface/project";
 import { getCookie } from "@/utils/cookis";
+import { redirect } from "next/navigation";
+
 
 export async function createProject(formaData: ProjectFormData) {
   try {
