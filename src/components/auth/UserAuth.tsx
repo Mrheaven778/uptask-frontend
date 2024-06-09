@@ -34,10 +34,13 @@ function UserAuth({ children }: UserAuthProps) {
   const router = useRouter();
   useEffect(() => {
     fetchUser();
+  }, []); 
+
+  useEffect(() => {
     if (!isAuthenticated) {
       router.push("/auth/login");
     }
-  }, []);
+  }, [isAuthenticated]); 
 
   if (isLoading) {
     return (
